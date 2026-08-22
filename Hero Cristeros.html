@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Guerra Cristera · Cien Años de Memoria · 1926–2026</title>
+<meta name="description" content="Centenario de la Guerra Cristera (1926–1929). Un siglo de memoria, fe y sacrificio en el occidente de México. ¡Viva Cristo Rey!">
+<meta property="og:title" content="La Guerra Cristera · Cien Años de Memoria">
+<meta property="og:description" content="Centenario de la Guerra Cristera. Un siglo de memoria, fe y sacrificio en México.">
+<meta property="og:image" content="assets/cabalgata.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════
+   TOKENS — Épico / litúrgico
+══════════════════════════════════════════════ */
+:root{
+  --ink:        #120a05;   /* negro cálido, casi brea */
+  --ink-2:      #1c1109;
+  --sepia-deep: #2c1810;
+  --sepia:      #8b6547;
+  --gold:       #c9a84c;
+  --gold-hi:    #e7c873;
+  --red:        #8b1a1a;
+  --red-hi:     #b3302a;
+  --cream:      #f2e8d5;
+  --cream-dim:  rgba(242,232,213,0.72);
+  --serif:      'Cinzel', serif;
+  --italic:     'Cormorant Garamond', serif;
+  --sans:       'Lato', sans-serif;
+}
+*,*::before,*::after{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  font-family:var(--sans); font-weight:300;
+  background:var(--ink); color:var(--cream);
+  overflow-x:hidden;
+}
+img,video{ display:block; }
+
+/* ══════════════════════════════════════════════
+   FILM GRAIN (animated, full-page)
+══════════════════════════════════════════════ */
+.grain{
+  position:fixed; inset:-150%; z-index:60; pointer-events:none;
+  opacity:.05; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grainShift 0.6s steps(2) infinite;
+}
+@keyframes grainShift{
+  0%{transform:translate(0,0)} 25%{transform:translate(-3%,2%)}
+  50%{transform:translate(2%,-3%)} 75%{transform:translate(-2%,-2%)}
+  100%{transform:translate(3%,3%)}
+}
+
+/* Vignette over everything */
+.vignette{
+  position:fixed; inset:0; z-index:55; pointer-events:none;
+  box-shadow:inset 0 0 200px 40px rgba(8,4,2,0.9), inset 0 0 80px rgba(8,4,2,0.5);
+}
+
+/* ══════════════════════════════════════════════
+   CURTAIN (cinematic open — pure CSS)
+══════════════════════════════════════════════ */
+.curtain{
+  position:fixed; inset:0; z-index:120; background:#080402;
+  display:flex; align-items:center; justify-content:center;
+  pointer-events:none;
+}
+.curtain .cross{
+  font-family:var(--serif); color:var(--gold); font-size:2.2rem;
+  opacity:0; animation:crossFlicker 2.4s ease forwards;
+}
+@keyframes crossFlicker{
+  0%{opacity:0} 18%{opacity:.85} 30%{opacity:.4} 42%{opacity:.9} 100%{opacity:0}
+}
+@media (prefers-reduced-motion: no-preference){
+  .curtain{ animation:curtainOut 2.6s cubic-bezier(.7,0,.2,1) forwards; }
+}
+@media (prefers-reduced-motion: reduce){
+  .curtain{ display:none; }
+}
+@keyframes curtainOut{
+  0%,55%{ opacity:1; }
+  100%{ opacity:0; visibility:hidden; }
+}
+
+/* ══════════════════════════════════════════════
+   NAV
+══════════════════════════════════════════════ */
+nav{
+  position:fixed; top:0; width:100%; z-index:100;
+  transition:background .4s, border-color .4s, backdrop-filter .4s;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled{
+  background:rgba(18,10,5,0.86); backdrop-filter:blur(10px);
+  border-bottom-color:rgba(201,168,76,0.18);
+}
+.nav-inner{
+  max-width:1280px; margin:0 auto; height:68px; padding:0 2rem;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-logo{
+  font-family:var(--serif); color:var(--cream); text-decoration:none;
+  font-size:.8rem; letter-spacing:3px; text-transform:uppercase; font-weight:600;
+  display:flex; align-items:center; gap:.55rem; white-space:nowrap;
+}
+.nav-logo .x{ color:var(--gold); }
+.nav-logo em{ color:var(--gold); font-style:normal; font-weight:500; letter-spacing:2px; }
+.nav-links{ display:flex; gap:1.7rem; list-style:none; }
+.nav-links a{
+  font-family:var(--sans); color:var(--cream-dim); text-decoration:none;
+  font-size:.7rem; letter-spacing:2px; text-transform:uppercase; font-weight:400;
+  padding:.4rem 0; position:relative; transition:color .3s;
+}
+.nav-links a::after{
+  content:''; position:absolute; left:0; right:0; bottom:-2px; height:1px;
+  background:var(--gold); transform:scaleX(0); transform-origin:center; transition:transform .3s;
+}
+.nav-links a:hover{ color:var(--gold-hi); }
+.nav-links a:hover::after{ transform:scaleX(1); }
+.nav-toggle{
+  display:none; flex-direction:column; gap:5px; background:none; border:none;
+  cursor:pointer; min-width:44px; min-height:44px; align-items:center; justify-content:center;
+}
+.nav-toggle span{ display:block; width:24px; height:1.5px; background:var(--cream); transition:all .3s; }
+.nav-toggle.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2){ opacity:0; }
+.nav-toggle.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+@media (max-width:920px){
+  .nav-toggle{ display:flex; }
+  .nav-links{
+    position:absolute; top:68px; left:0; right:0; flex-direction:column; gap:0;
+    background:rgba(18,10,5,0.97); backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(201,168,76,0.18);
+    max-height:0; overflow:hidden; transition:max-height .4s ease;
+  }
+  .nav-links.open{ max-height:60vh; }
+  .nav-links a{ padding:1rem 2rem; min-height:44px; display:flex; align-items:center;
+    border-top:1px solid rgba(201,168,76,0.07); }
+}
+
+/* ══════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════ */
+.hero{
+  position:relative; min-height:100vh; min-height:100svh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:7rem 1.5rem 6rem; overflow:hidden;
+}
+.hero-media{ position:absolute; inset:0; z-index:0; overflow:hidden; background:var(--ink); }
+.hero-media .poster,
+.hero-media video{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center 32%;
+  filter:saturate(.62) contrast(1.06) sepia(.22) brightness(.82);
+}
+/* archival photo — guaranteed base layer (Ken Burns) */
+.hero-media .poster{
+  background:url('assets/cabalgata.jpg') center 30% / cover no-repeat;
+  animation:slowZoom 26s ease-out forwards;
+}
+/* video fades in over the photo once it actually decodes */
+.hero-media video{
+  opacity:0; transition:opacity 1.2s ease; animation:slowZoom 24s ease-out forwards;
+}
+.hero-media video.playing{ opacity:1; }
+@keyframes slowZoom{ from{ transform:scale(1.05); } to{ transform:scale(1.16); } }
+@media (prefers-reduced-motion: reduce){
+  .hero-media .poster,.hero-media video{ animation:none; transform:scale(1.06); }
+}
+
+/* gradient + tint overlays */
+.hero-media::after{
+  content:''; position:absolute; inset:0; z-index:1;
+  background:
+    radial-gradient(120% 80% at 50% 22%, rgba(201,168,76,0.10), transparent 55%),
+    linear-gradient(to bottom,
+      rgba(18,10,5,0.78) 0%,
+      rgba(18,10,5,0.30) 32%,
+      rgba(18,10,5,0.52) 62%,
+      rgba(18,10,5,0.92) 88%,
+      var(--ink) 100%);
+}
+
+.hero-inner{ position:relative; z-index:3; max-width:920px; }
+
+/* Eyebrow */
+.eyebrow{
+  display:inline-flex; align-items:center; gap:.8rem;
+  font-family:var(--serif); font-size:.62rem; letter-spacing:5px; text-transform:uppercase;
+  color:var(--gold-hi); margin-bottom:2rem;
+}
+.eyebrow::before,.eyebrow::after{
+  content:''; width:34px; height:1px; background:linear-gradient(90deg,transparent,var(--gold));
+}
+.eyebrow::after{ background:linear-gradient(90deg,var(--gold),transparent); }
+
+/* Title */
+.hero h1{
+  font-family:var(--serif); font-weight:800;
+  font-size:clamp(2.7rem,8vw,6.4rem); line-height:.98; letter-spacing:.5px;
+  color:var(--cream); text-shadow:0 4px 50px rgba(0,0,0,.7);
+}
+.hero h1 .top{ display:block; font-weight:500; font-size:.52em; letter-spacing:8px;
+  color:var(--cream-dim); margin-bottom:.55rem; }
+.hero h1 .main{ display:block; }
+.hero h1 .main em{ color:var(--gold); font-style:normal;
+  text-shadow:0 0 50px rgba(201,168,76,.35), 0 4px 50px rgba(0,0,0,.7); }
+
+/* tagline */
+.tagline{
+  font-family:var(--italic); font-style:italic; font-weight:500;
+  font-size:clamp(1.05rem,2.4vw,1.5rem); letter-spacing:.5px;
+  color:var(--cream-dim); margin-top:1.1rem;
+}
+
+/* THE GRITO — elemento memorable */
+.grito{
+  margin:2.4rem auto 0; max-width:680px;
+  display:flex; align-items:center; gap:1.4rem;
+}
+.grito .rule{ flex:1; height:1px; background:linear-gradient(90deg,transparent,rgba(201,168,76,.55)); }
+.grito .rule.r{ background:linear-gradient(90deg,rgba(201,168,76,.55),transparent); }
+.grito .cry{
+  font-family:var(--serif); font-weight:700; white-space:nowrap;
+  font-size:clamp(1rem,3.1vw,1.85rem); letter-spacing:3px; text-transform:uppercase;
+  color:var(--gold-hi);
+  text-shadow:0 0 28px rgba(201,168,76,.45), 0 2px 18px rgba(0,0,0,.6);
+}
+
+/* subtitle */
+.hero-sub{
+  font-family:var(--sans); font-weight:300;
+  font-size:clamp(.92rem,1.7vw,1.08rem); line-height:1.9;
+  color:var(--cream-dim); max-width:560px; margin:2rem auto 0;
+}
+
+/* CTAs */
+.cta{ display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:2.6rem; }
+.btn{
+  min-height:48px; padding:0 2.1rem; display:inline-flex; align-items:center; gap:.6rem;
+  font-family:var(--sans); font-size:.7rem; letter-spacing:3px; text-transform:uppercase;
+  font-weight:700; text-decoration:none; cursor:pointer; border:1px solid; transition:all .35s;
+}
+.btn-gold{ background:var(--gold); color:var(--ink); border-color:var(--gold);
+  box-shadow:0 8px 40px rgba(201,168,76,.18); }
+.btn-gold:hover{ background:transparent; color:var(--gold-hi);
+  box-shadow:0 8px 40px rgba(201,168,76,.05); }
+.btn-ghost{ background:rgba(18,10,5,.25); color:var(--cream); border-color:rgba(242,232,213,.35);
+  backdrop-filter:blur(2px); }
+.btn-ghost:hover{ border-color:var(--gold); color:var(--gold-hi); }
+
+/* scroll cue */
+.scroll-cue{
+  position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); z-index:3;
+  display:flex; flex-direction:column; align-items:center; gap:.7rem;
+  color:rgba(201,168,76,.6);
+}
+.scroll-cue span{ font-family:var(--serif); font-size:.55rem; letter-spacing:3px; text-transform:uppercase; }
+.scroll-cue .line{ width:1px; height:42px; background:linear-gradient(var(--gold),transparent);
+  position:relative; overflow:hidden; }
+.scroll-cue .line::after{
+  content:''; position:absolute; top:-50%; left:0; width:100%; height:50%;
+  background:var(--gold-hi); animation:scrollDrop 2.2s ease-in-out infinite;
+}
+@keyframes scrollDrop{ 0%{top:-50%} 60%,100%{top:100%} }
+
+/* corner ornaments on the hero frame */
+.hero-frame{ position:absolute; inset:1.1rem; z-index:2; pointer-events:none; }
+.hero-frame i{ position:absolute; width:46px; height:46px; border:1px solid rgba(201,168,76,.32); }
+.hero-frame i:nth-child(1){ top:0; left:0; border-width:1px 0 0 1px; }
+.hero-frame i:nth-child(2){ top:0; right:0; border-width:1px 1px 0 0; }
+.hero-frame i:nth-child(3){ bottom:0; left:0; border-width:0 0 1px 1px; }
+.hero-frame i:nth-child(4){ bottom:0; right:0; border-width:0 1px 1px 0; }
+@media (max-width:600px){ .hero-frame{ display:none; } }
+
+/* ══════════════════════════════════════════════
+   INTRO (transición a la siguiente sección)
+══════════════════════════════════════════════ */
+.intro{
+  position:relative; padding:7rem 1.5rem 7rem; text-align:center;
+  background:
+    radial-gradient(90% 60% at 50% 0%, rgba(201,168,76,0.05), transparent 60%),
+    var(--ink);
+}
+.seal{
+  width:58px; height:58px; border-radius:50%; margin:0 auto 2.4rem;
+  border:1px solid rgba(201,168,76,.4); position:relative;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--gold); font-family:var(--serif); font-size:1.1rem;
+}
+.seal::before{ content:''; position:absolute; inset:5px; border-radius:50%;
+  border:1px solid rgba(201,168,76,.18); }
+.intro .lead{
+  font-family:var(--italic); font-style:italic; font-weight:500;
+  font-size:clamp(1.25rem,2.8vw,1.85rem); line-height:1.7;
+  color:var(--cream); max-width:760px; margin:0 auto 1.6rem; text-wrap:balance;
+}
+.intro .lead strong{ font-style:normal; color:var(--gold-hi); font-weight:600; }
+.intro .body{
+  font-family:var(--sans); font-weight:300;
+  font-size:clamp(.95rem,1.7vw,1.05rem); line-height:1.95;
+  color:var(--cream-dim); max-width:620px; margin:0 auto;
+}
+.intro .attr{
+  font-family:var(--serif); font-size:.62rem; letter-spacing:3px; text-transform:uppercase;
+  color:var(--sepia); margin-top:2.4rem;
+}
+.ornament{
+  display:flex; align-items:center; gap:1rem; max-width:260px; margin:2.6rem auto 0;
+  color:var(--gold); font-size:.85rem;
+}
+.ornament::before,.ornament::after{ content:''; flex:1; height:1px; background:rgba(201,168,76,.3); }
+
+/* ══════════════════════════════════════════════
+   CINEMATIC ENTRANCE (progressive enhancement)
+══════════════════════════════════════════════ */
+@media (prefers-reduced-motion: no-preference){
+  body.cinematic .anim{ opacity:0; }
+  body.cinematic.ready .anim{ animation:riseIn 1.15s cubic-bezier(.2,.7,.2,1) both; }
+  body.cinematic.ready .anim{ animation-delay:var(--d,0s); }
+
+  body.cinematic.ready .grito{ animation:gritoIn 1.4s cubic-bezier(.2,.7,.2,1) both;
+    animation-delay:var(--d,0s); }
+
+  @keyframes riseIn{ from{ opacity:0; transform:translateY(26px); filter:blur(6px); }
+    to{ opacity:1; transform:none; filter:blur(0); } }
+  @keyframes gritoIn{
+    0%{ opacity:0; transform:scale(1.14); filter:blur(8px); letter-spacing:10px; }
+    100%{ opacity:1; transform:none; filter:blur(0); }
+  }
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="curtain" aria-hidden="true"><span class="cross">✝</span></div>
+
+<!-- ════════════ NAV ════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#"><span class="x">✝</span> CRISTIADA <em>1926–2026</em></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#cronologia">Cronología</a></li>
+      <li><a href="#mapa">Mapa</a></li>
+      <li><a href="#multimedia">Multimedia</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#libro">Libro</a></li>
+      <li><a href="#martires">Mártires</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ════════════ HERO ════════════ -->
+<header class="hero" data-screen-label="Hero">
+  <div class="hero-media" aria-hidden="true">
+    <div class="poster"></div>
+    <video id="hero-video" muted loop playsinline preload="auto" data-src="assets/VideoHero.mp4"></video>
+  </div>
+  <div class="hero-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+  <div class="hero-inner">
+    <div class="eyebrow anim" style="--d:.7s">Centenario · 1926 — 2026</div>
+
+    <h1>
+      <span class="top anim" style="--d:.95s">La Guerra</span>
+      <span class="main anim" style="--d:1.15s"><em>Cristera</em></span>
+    </h1>
+
+    <p class="tagline anim" style="--d:1.45s">Cien años de memoria, fe y sacrificio</p>
+
+    <div class="grito" style="--d:1.95s">
+      <span class="rule"></span>
+      <span class="cry">¡Viva Cristo Rey!</span>
+      <span class="rule r"></span>
+    </div>
+
+    <p class="hero-sub anim" style="--d:2.5s">
+      Entre 1926 y 1929, el occidente de México se alzó en armas para defender su fe.
+      Un siglo después, recordamos a quienes ofrendaron su vida.
+    </p>
+
+    <div class="cta anim" style="--d:2.8s">
+      <a href="#cronologia" class="btn btn-gold">Conoce la Historia</a>
+      <a href="#galeria" class="btn btn-ghost">Ver el Archivo</a>
+    </div>
+  </div>
+
+  <a class="scroll-cue anim" style="--d:3.3s" href="#inicio" aria-label="Desplázate">
+    <span>Desliza</span>
+    <span class="line"></span>
+  </a>
+</header>
+
+<!-- ════════════ INTRO — transición ════════════ -->
+<section class="intro" id="inicio">
+  <div class="seal reveal">✝</div>
+  <p class="lead reveal">
+    Hubo un tiempo en que, por primera vez en cuatro siglos, <strong>las campanas de México callaron</strong>
+    —y un pueblo entero tomó las armas al grito de Cristo Rey.
+  </p>
+  <p class="body reveal">
+    Más de noventa mil personas murieron en una guerra que el mundo olvidó, y que los Altos de Jalisco,
+    las barrancas de Michoacán y las plazas del Bajío todavía guardan en la memoria de sus muertos.
+    Esta es su historia.
+  </p>
+  <div class="ornament reveal">✠</div>
+  <p class="attr reveal">Sitio conmemorativo · 1926 – 2026</p>
+</section>
+
+<script>
+(function(){
+  // Load hero video as a Blob — the preview server omits content-length /
+  // range support, which a direct <video src> needs to stream. Blob fetch
+  // works everywhere and is a clean progressive enhancement.
+  (function loadVideo(){
+    var v = document.getElementById('hero-video');
+    if(!v) return;
+    var reveal = function(){ v.classList.add('playing'); };
+    v.addEventListener('playing', reveal);
+    v.addEventListener('loadeddata', function(){ var p=v.play(); if(p&&p.catch)p.catch(function(){}); });
+    fetch(v.getAttribute('data-src'))
+      .then(function(r){ return r.ok ? r.blob() : Promise.reject(r.status); })
+      .then(function(blob){
+        v.src = URL.createObjectURL(blob);
+        v.load();
+        var p = v.play(); if(p && p.catch) p.catch(function(){});
+      })
+      .catch(function(){ /* archival photo base layer remains as graceful fallback */ });
+  })();
+
+  // Cinematic entrance — progressive enhancement only
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){
+    document.body.classList.add('cinematic');
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ document.body.classList.add('ready'); });
+    });
+  }
+
+  // Nav scroll state
+  var nav = document.getElementById('nav');
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 40); }
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  // Mobile menu
+  var toggle = document.getElementById('nav-toggle');
+  var links = document.getElementById('nav-links');
+  toggle.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ links.classList.remove('open'); toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false'); }
+  });
+
+  // Reveal on scroll
+  if('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {threshold:.18});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>

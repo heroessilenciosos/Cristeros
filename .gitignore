@@ -1,0 +1,10 @@
+.claude/
+design-handoff/
+.thumbnail
+uploads/SKILL (1).md
+uploads/historical-web-designer.skill
+
+# Material de trabajo sin procesar para Libros (portadas/escaneos originales,
+# incluye un PDF >100MB que GitHub rechaza). Las versiones finales para el
+# sitio viven en assets/libros/.
+assets/Libros Cristiada/

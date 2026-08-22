@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<base href="/conmemoracion-especial/">
+<title>Personajes · La Guerra Cristera · Mártires y Figuras Clave · 1926–2026</title>
+<meta name="description" content="Mártires y figuras clave de la Guerra Cristera: sacerdotes, líderes civiles y militares que ofrendaron su vida por la libertad religiosa.">
+<meta property="og:title" content="Personajes · La Guerra Cristera">
+<meta property="og:description" content="Mártires y figuras clave de la Guerra Cristera, en sus propias palabras.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════
+   TOKENS (shared with index.html)
+══════════════════════════════════════════════ */
+:root{
+  --ink:        #120a05;
+  --ink-2:      #1c1109;
+  --sepia-deep: #2c1810;
+  --sepia:      #8b6547;
+  --sepia-ink:  #6e4f37;
+  --gold:       #c9a84c;
+  --gold-hi:    #e7c873;
+  --red:        #8b1a1a;
+  --red-hi:     #b3302a;
+  --cream:      #f2e8d5;
+  --cream-dim:  rgba(242,232,213,0.72);
+  --bg:         #e8dcc8;
+  --text:       #2a1f0e;
+  --dim:        #5d4a33;
+  --serif:      'Cinzel', serif;
+  --italic:     'Cormorant Garamond', serif;
+  --sans:       'Lato', sans-serif;
+}
+*,*::before,*::after{ margin:0; padding:0; box-sizing:border-box; }
+.cross,.nav-logo .x{ font-variant-emoji:text; }
+html{ scroll-behavior:smooth; }
+body{
+  font-family:var(--sans); font-weight:400;
+  background:var(--bg); color:var(--text);
+  overflow-x:hidden;
+}
+img{ display:block; }
+
+.grain{
+  position:fixed; inset:-150%; z-index:60; pointer-events:none;
+  opacity:.05; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grainShift 0.6s steps(2) infinite;
+}
+@keyframes grainShift{
+  0%{transform:translate(0,0)} 25%{transform:translate(-3%,2%)}
+  50%{transform:translate(2%,-3%)} 75%{transform:translate(-2%,-2%)}
+  100%{transform:translate(3%,3%)}
+}
+
+/* ══════════════════════════════════════════════
+   NAV (shared with index.html)
+══════════════════════════════════════════════ */
+nav{
+  position:fixed; top:0; width:100%; z-index:100;
+  background:rgba(18,10,5,0.92); backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(201,168,76,0.18);
+}
+.nav-inner{
+  max-width:1380px; margin:0 auto; height:68px; padding:0 2rem;
+  display:flex; align-items:center; gap:1.5rem;
+}
+.nav-logo .x{ color:var(--gold); font-size:1.55em; -webkit-text-stroke:1px currentColor; text-stroke:1px currentColor; }
+.nav-scroll-wrap{ position:relative; flex:1; min-width:0; }
+.nav-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+.nav-scroll::-webkit-scrollbar{ display:none; }
+.nav-row{ display:flex; align-items:center; gap:1.35rem; min-width:max-content; padding-right:2rem; }
+.nav-row a{
+  font-family:var(--sans); color:var(--cream-dim); text-decoration:none;
+  font-size:.85rem; letter-spacing:1.5px; text-transform:uppercase; font-weight:400;
+  padding:.4rem 0; position:relative; transition:color .3s; white-space:nowrap;
+}
+.nav-row a::after{
+  content:''; position:absolute; left:0; right:0; bottom:-2px; height:1px;
+  background:var(--gold); transform:scaleX(0); transform-origin:center; transition:transform .3s;
+}
+.nav-row a:hover{ color:var(--gold-hi); }
+.nav-row a:hover::after{ transform:scaleX(1); }
+.nav-row a.current{ color:var(--gold-hi); }
+.nav-row a.current::after{ transform:scaleX(1); }
+.nav-row a.nav-logo{
+  font-family:var(--serif); color:var(--cream); font-size:1.15rem; letter-spacing:2.5px;
+  font-weight:700; display:flex; align-items:center; gap:.55rem;
+  padding-right:1.2rem; margin-right:.3rem; border-right:1px solid rgba(201,168,76,.25);
+}
+.nav-row a.nav-logo:hover{ color:var(--gold-hi); }
+.nav-scroll-hint{
+  position:absolute; top:0; right:0; bottom:0; width:32px;
+  background:linear-gradient(to right, rgba(18,10,5,0), rgba(18,10,5,.92) 82%);
+  pointer-events:none; transition:opacity .3s ease;
+}
+.nav-scroll-hint.is-hidden{ opacity:0; }
+@media (max-width:480px){
+  .nav-inner{ padding:0 1rem; }
+  .nav-row a.nav-logo{ font-size:1rem; letter-spacing:1.8px; padding-right:.8rem; }
+}
+
+/* ── Compartir panel ── */
+.hsk-share-item{ position:relative; display:inline-flex; }
+.hsk-share-ico{
+  width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  background:rgba(201,168,76,.1); border:1px solid rgba(201,168,76,.4); color:var(--gold-hi);
+  text-decoration:none; cursor:pointer; transition:filter .2s ease, transform .2s ease; padding:0;
+}
+.hsk-share-ico:hover,.hsk-share-ico:focus-visible{ filter:brightness(1.18); transform:translateY(-2px); }
+.hsk-share-ico svg{ width:20px; height:20px; pointer-events:none; }
+.hsk-ico-whatsapp{ background:#25D366; border-color:#25D366; color:#fff; }
+.hsk-ico-facebook{ background:#1877F2; border-color:#1877F2; color:#fff; }
+.hsk-ico-x{ background:#000; border-color:#333; color:#fff; }
+.hsk-share-close-wrap{ position:absolute; top:6px; right:6px; }
+.hsk-share-close-wrap .hsk-share-tip{ bottom:auto; top:calc(100% + 6px); }
+.hsk-share-ico.hsk-share-close{ width:24px; height:24px; background:transparent; border:none; color:rgba(212,197,160,.6); }
+.hsk-share-ico.hsk-share-close:hover{ background:rgba(201,168,76,.15); color:var(--gold-hi); transform:none; filter:none; }
+.hsk-share-ico.hsk-share-close svg{ width:14px; height:14px; }
+.hsk-share-tip{
+  position:absolute; bottom:calc(100% + 9px); left:50%; transform:translateX(-50%); white-space:nowrap;
+  font-size:10px; letter-spacing:1px; text-transform:uppercase; color:var(--ink);
+  background:var(--gold-hi); padding:5px 9px; border-radius:5px; opacity:0; pointer-events:none;
+  transition:opacity .18s ease; font-weight:600;
+}
+.hsk-share-item.hsk-tip-left .hsk-share-tip{ left:0; transform:none; }
+.hsk-share-item.hsk-tip-right .hsk-share-tip{ left:auto; right:0; transform:none; }
+.hsk-share-item:hover .hsk-share-tip,.hsk-share-item:focus-within .hsk-share-tip,.hsk-share-item.hsk-tip-force .hsk-share-tip{ opacity:1; }
+
+/* ══════════════════════════════════════════════
+   PAGE HERO (dark)
+══════════════════════════════════════════════ */
+.per-hero{
+  background:var(--ink); padding:9.5rem 1.5rem 4.5rem; text-align:center;
+  position:relative;
+}
+.per-eyebrow{
+  font-family:var(--serif); font-size:.85rem; letter-spacing:4px;
+  text-transform:uppercase; color:var(--gold); margin-bottom:.8rem; display:block;
+}
+.per-hero h1{
+  font-family:var(--serif); font-weight:700; color:var(--cream);
+  font-size:clamp(2.2rem,6vw,3.6rem); line-height:1.05;
+}
+.per-hero p{
+  max-width:660px; margin:1.6rem auto 0; font-family:var(--italic); font-style:italic;
+  font-size:clamp(1.05rem,2.2vw,1.3rem); line-height:1.85; color:var(--cream-dim);
+}
+.btn{
+  min-height:48px; padding:0 2.1rem; display:inline-flex; align-items:center; gap:.6rem;
+  font-family:var(--sans); font-size:.88rem; letter-spacing:3px; text-transform:uppercase;
+  font-weight:700; text-decoration:none; cursor:pointer; border:1px solid; transition:all .35s;
+}
+.btn-gold{ background:var(--gold); color:var(--ink); border-color:var(--gold);
+  box-shadow:0 8px 40px rgba(201,168,76,.18); }
+.btn-gold:hover{ background:transparent; color:var(--gold-hi);
+  box-shadow:0 8px 40px rgba(201,168,76,.05); }
+.btn-ghost{ background:rgba(18,10,5,.25); color:var(--cream); border-color:rgba(242,232,213,.35);
+  backdrop-filter:blur(2px); }
+.btn-ghost:hover{ border-color:var(--gold); color:var(--gold-hi); }
+.per-audio{ display:flex; justify-content:center; margin-top:2.4rem; }
+
+#audio-btn{ position:relative; border-radius:999px; }
+#audio-btn::after{
+  content:''; position:absolute; inset:0; border-radius:999px;
+  pointer-events:none; animation:audioGlow 2.6s ease-in-out infinite;
+}
+@keyframes audioGlow{
+  0%,100%{ box-shadow:0 0 8px 1px rgba(201,168,76,.3), 0 0 18px 4px rgba(201,168,76,.15); }
+  50%{ box-shadow:0 0 18px 5px rgba(201,168,76,.75), 0 0 38px 14px rgba(201,168,76,.35); }
+}
+@media (prefers-reduced-motion: reduce){
+  #audio-btn::after{ animation:none; box-shadow:0 0 14px 3px rgba(201,168,76,.5); }
+}
+
+/* ══════════════════════════════════════════════
+   MAIN (paper)
+══════════════════════════════════════════════ */
+.per-main{
+  background-color:var(--bg);
+  background-image:
+    repeating-linear-gradient(-45deg, transparent 0, transparent 8px,
+      rgba(0,0,0,0.018) 8px, rgba(0,0,0,0.018) 9px),
+    repeating-linear-gradient( 45deg, transparent 0, transparent 14px,
+      rgba(0,0,0,0.01) 14px, rgba(0,0,0,0.01) 15px);
+  padding:5rem 2rem 6rem;
+}
+.section-seal{
+  width:54px; height:54px; border-radius:50%;
+  border:1px solid rgba(139,115,85,.35);
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 1.5rem; color:var(--red); font-size:1rem;
+  position:relative;
+}
+.section-seal::before{
+  content:''; position:absolute; inset:4px;
+  border-radius:50%; border:1px solid rgba(139,115,85,.15);
+}
+.per-title{
+  font-family:var(--serif); font-size:clamp(1.6rem,3.4vw,2.3rem); font-weight:700;
+  color:var(--text); text-align:center; margin-bottom:3rem;
+}
+
+.martyrs-grid{
+  max-width:1000px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr));
+  gap:0; background:rgba(139,115,85,0.12);
+  border:1px solid rgba(139,115,85,0.2);
+}
+.martyr-card{
+  background:var(--bg); padding:2rem 1.2rem; text-align:center;
+  border-right:1px solid rgba(139,115,85,0.12);
+  border-bottom:1px solid rgba(139,115,85,0.12);
+  transition:background .3s;
+}
+.martyr-card:hover{ background:#dfd3b8; }
+.martyr-icon{
+  width:50px; height:50px; border-radius:50%; margin:0 auto 1rem;
+  border:1px solid rgba(139,115,85,.3);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--red); font-size:1.1rem;
+}
+.martyr-name{ font-family:var(--serif); font-size:1rem; color:var(--text); margin-bottom:.2rem; }
+.martyr-date{ font-size:.88rem; color:var(--sepia-ink); letter-spacing:1px; margin-bottom:.6rem; }
+.martyr-desc{ font-size:.92rem; color:var(--dim); line-height:1.6; }
+
+/* ── Los 25 Mártires Canonizados ── */
+.mrt25-section{ max-width:900px; margin:4rem auto 0; padding:0 .5rem; }
+.mrt25-title{
+  font-family:var(--serif); font-size:clamp(1.3rem,2.6vw,1.7rem); font-weight:700;
+  color:var(--text); text-align:center; margin-bottom:1rem;
+}
+.mrt25-intro{
+  font-family:var(--italic); font-style:italic; font-size:1.05rem; line-height:1.75;
+  color:var(--dim); text-align:center; max-width:720px; margin:0 auto 2.4rem;
+}
+
+.ornament-line{
+  display:flex; align-items:center; gap:1.2rem;
+  max-width:300px; margin:3.5rem auto;
+}
+.ornament-line::before,.ornament-line::after{
+  content:''; flex:1; height:1px; background:var(--sepia); opacity:.4;
+}
+.ornament-line span{ color:var(--gold); font-size:1rem; white-space:nowrap; letter-spacing:4px; }
+
+.quotes-wrap{ max-width:720px; margin:0 auto; }
+.quote-display{ min-height:180px; text-align:center; padding:2rem 1rem; position:relative; }
+.q-mark{
+  font-family:var(--italic); font-size:7rem; color:rgba(139,115,85,.12);
+  line-height:0; position:absolute; top:2.8rem; left:0;
+  user-select:none; pointer-events:none;
+}
+.q-text{
+  font-family:var(--italic); font-style:italic;
+  font-size:clamp(1.05rem,2.5vw,1.4rem); color:var(--text);
+  line-height:1.85; margin-bottom:1.2rem; position:relative; z-index:1;
+}
+.q-author{ font-family:var(--serif); font-size:.88rem; letter-spacing:2px; color:var(--sepia-ink); text-transform:uppercase; }
+.q-nav{ display:flex; align-items:center; justify-content:center; gap:1rem; margin-top:2rem; }
+.q-btn{
+  background:none; border:1px solid rgba(139,115,85,.3); color:var(--sepia);
+  width:44px; height:44px; cursor:pointer; font-size:.9rem; transition:all .3s;
+}
+.q-btn:hover{ border-color:var(--gold); color:var(--gold); }
+.q-dots{ display:flex; gap:6px; justify-content:center; }
+.q-dot{ width:6px; height:6px; border-radius:50%; background:rgba(139,115,85,.25); cursor:pointer; border:none; transition:background .3s; }
+.q-dot.active{ background:var(--gold); }
+
+/* ══════════════════════════════════════════════
+   FOOTER (shared)
+══════════════════════════════════════════════ */
+footer{
+  background:#1a100a;
+  border-top:1px solid rgba(201,168,76,.12);
+  padding:1.6rem 2rem max(1.8rem, env(safe-area-inset-bottom));
+}
+.footer-inner{
+  width:100%; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; align-items:start;
+}
+.footer-logo{ font-family:var(--serif); color:var(--gold); font-size:1rem; letter-spacing:3px; margin-bottom:.6rem; }
+.footer-thanks{ font-family:var(--italic); font-style:italic; font-size:1.4rem; color:var(--cream); margin-bottom:.9rem; }
+.footer-line{ font-size:.9rem; color:rgba(212,197,160,.58); line-height:1.7; }
+.footer-sources h4{
+  font-family:var(--serif); font-size:.82rem; letter-spacing:3px;
+  text-transform:uppercase; color:var(--sepia); margin-bottom:.7rem;
+}
+.footer-sources ul{ list-style:none; column-count:2; column-gap:1.5rem; }
+.footer-sources li{
+  font-size:.85rem; color:rgba(212,197,160,.58); line-height:1.15;
+  margin-bottom:.5rem; break-inside:avoid;
+}
+@media (max-width:700px){
+  .footer-inner{ grid-template-columns:1fr; }
+  .footer-sources ul{ column-count:1; }
+}
+
+/* ── Scroll reveal ── */
+@media (prefers-reduced-motion: no-preference){
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ════════════ NAV ════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-scroll-wrap">
+      <div id="nav-scroll" class="nav-scroll">
+        <div class="nav-row" id="nav-row">
+          <a class="nav-logo" href="index.html"><span class="x">✝&#xFE0E;</span> CRISTIADA</a>
+          <a href="index.html#proposito">Propósito</a>
+          <a href="index.html#lineadetiempo">Línea de Tiempo</a>
+          <a href="index.html#geografia">Geografía</a>
+          <a href="personajes.html" class="current" aria-current="page">Personajes</a>
+          <a href="galeria.html">Fotos</a>
+          <a href="hemeroteca.html">Hemeroteca</a>
+          <a href="videoteca.html">Videoteca</a>
+          <a href="index.html#libros">Libros</a>
+          <a href="#" class="hsk-share-btn-trigger" aria-haspopup="true" aria-expanded="false">Compartir</a>
+        </div>
+      </div>
+      <div aria-hidden="true" id="nav-scroll-hint" class="nav-scroll-hint"></div>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════ HERO ════════════ -->
+<header class="per-hero">
+  <span class="per-eyebrow">Mártires y Figuras Clave</span>
+  <h1>Personajes</h1>
+  <p>
+    Sacerdotes, líderes civiles, militares y niños que ofrendaron su vida por la libertad religiosa
+    durante la Guerra Cristera. Estos son algunos de los nombres, las fechas y las últimas palabras
+    que la historia conserva de ellos.
+  </p>
+  <p>
+    Esta galería de personajes seguirá creciendo conforme avance el centenario de los tres años
+    que duró la Cristiada (1926-1929).
+  </p>
+  <div class="per-audio">
+    <button type="button" id="audio-btn" class="btn btn-ghost" aria-label="Encender música de fondo" onclick="toggleAudio()">
+      <span id="audio-icon" aria-hidden="true">♪</span>
+      <span id="audio-label">Encender Música</span>
+    </button>
+  </div>
+</header>
+
+<audio id="bg-audio" loop preload="none">
+  <source src="assets/RequiemAeternam.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ════════════ MÁRTIRES ════════════ -->
+<main class="per-main">
+  <div class="section-seal reveal">✝&#xFE0E;</div>
+  <h2 class="per-title reveal">Los que Ofrendaron su Vida</h2>
+
+  <div class="martyrs-grid">
+    <div class="martyr-card reveal">
+      <div class="martyr-icon">✝&#xFE0E;</div>
+      <div class="martyr-name">Anacleto González</div>
+      <div class="martyr-date">† 1 Abr. 1927</div>
+      <p class="martyr-desc">El "Gandhi mexicano". Líder civil de la Liga. Torturado y fusilado en Guadalajara.</p>
+    </div>
+    <div class="martyr-card reveal">
+      <div class="martyr-icon">✝&#xFE0E;</div>
+      <div class="martyr-name">José Luis Sánchez</div>
+      <div class="martyr-date">† 10 Feb. 1928</div>
+      <p class="martyr-desc">El "niño cristero". Torturado y asesinado a los 14 años. Canonizado en 2000.</p>
+    </div>
+    <div class="martyr-card reveal">
+      <div class="martyr-icon">†</div>
+      <div class="martyr-name">Pbro. Rodrigo Aguilar</div>
+      <div class="martyr-date">† 28 Oct. 1927</div>
+      <p class="martyr-desc">Ahorcado de un árbol de mango. Sus últimas palabras: "Suba, suba. En el cielo lo veré."</p>
+    </div>
+    <div class="martyr-card reveal">
+      <div class="martyr-icon">†</div>
+      <div class="martyr-name">Enrique Gorostieta</div>
+      <div class="martyr-date">† 2 Jun. 1929</div>
+      <p class="martyr-desc">Comandante militar cristero. Agnóstico que murió creyente en combate, semanas antes de los arreglos.</p>
+    </div>
+  </div>
+
+  <section class="mrt25-section" aria-labelledby="mrt25-heading">
+    <h3 class="mrt25-title reveal" id="mrt25-heading">Los 25 Mártires Canonizados</h3>
+    <p class="mrt25-intro reveal">El 21 de mayo de 2000, en la Basílica de San Pedro, el papa Juan Pablo II canonizó a Cristóbal Magallanes y a otros veinticuatro sacerdotes y laicos mexicanos asesinados en distintas regiones del país durante la persecución religiosa de 1915 a 1937. Junto a ellos, la Iglesia honra también al beato Miguel Pro, jesuita fusilado en 1927 y beatificado por el mismo Juan Pablo II en 1988: no forma parte de los 25 canonizados en el año 2000, pero se le incluye aquí como otro mártir beatificado de la misma guerra cristera.</p>
+
+    <div class="martyrs-grid">
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Toribio Romo González · Santo</div>
+        <div class="martyr-date">† 25 Feb. 1928 · Tequila, Jal.</div>
+        <p class="martyr-desc">Sorprendido de madrugada por una tropa en Tequila, murió por los disparos recibidos mientras dormía. Hoy es venerado como patrono de los migrantes.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">P. Miguel Pro, S.J. · Beato</div>
+        <div class="martyr-date">† 23 Nov. 1927 · Cd. de México</div>
+        <p class="martyr-desc">Fusilado sin juicio por el gobierno de Calles; extendió los brazos en cruz y murió gritando "¡Viva Cristo Rey!".</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. David Galván Bermúdez</div>
+        <div class="martyr-date">† 30 Ene. 1915 · Guadalajara, Jal.</div>
+        <p class="martyr-desc">Auxiliaba a heridos en un enfrentamiento armado en Guadalajara cuando fue detenido sin proceso y fusilado junto al panteón de Belén.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">David Roldán Lara</div>
+        <div class="martyr-date">† 15 Ago. 1926 · Chalchihuites, Zac.</div>
+        <p class="martyr-desc">Laico de Acción Católica; fue arrestado en su casa y fusilado junto a tres compañeros de apostolado en Chalchihuites.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Luis Batis Sáinz</div>
+        <div class="martyr-date">† 15 Ago. 1926 · Chalchihuites, Zac.</div>
+        <p class="martyr-desc">Párroco fusilado junto a tres laicos; al no lograr salvar a uno de ellos le dijo como despedida: "Hasta el cielo."</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Manuel Morales</div>
+        <div class="martyr-date">† 15 Ago. 1926 · Chalchihuites, Zac.</div>
+        <p class="martyr-desc">Padre de familia y catequista; el Pbro. Batis intentó salvarlo recordando que dejaba esposa e hijos, sin éxito.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Salvador Lara Puente</div>
+        <div class="martyr-date">† 15 Ago. 1926 · Chalchihuites, Zac.</div>
+        <p class="martyr-desc">El más joven del grupo de Chalchihuites; fue fusilado junto a sus tres compañeros por negarse a renunciar a su fe.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Jenaro Sánchez Delgadillo</div>
+        <div class="martyr-date">† 17 Ene. 1927 · Tecolotlán, Jal.</div>
+        <p class="martyr-desc">Ahorcado de un árbol tras negarse a huir de sus captores; perdonó a sus verdugos momentos antes de morir.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Mateo Correa Magallanes</div>
+        <div class="martyr-date">† 6 Feb. 1927 · Durango</div>
+        <p class="martyr-desc">Fusilado por negarse a revelar ante un general federal lo que unos prisioneros le habían confiado en confesión.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Julio Álvarez Mendoza</div>
+        <div class="martyr-date">† 30 Mar. 1927 · Guadalajara, Jal.</div>
+        <p class="martyr-desc">Párroco torturado durante varios días antes de ser fusilado; su cuerpo fue abandonado cerca de su parroquia.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. David Uribe Velasco</div>
+        <div class="martyr-date">† 12 Abr. 1927 · Vista Hermosa, Mor.</div>
+        <p class="martyr-desc">Antes de morir bendijo y perdonó a los soldados que lo fusilaron, y repartió entre ellos sus objetos personales.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Sabás Reyes Salazar</div>
+        <div class="martyr-date">† 13 Abr. 1927 · Tototlán, Jal.</div>
+        <p class="martyr-desc">Torturado durante tres días —le quemaron las manos consagradas— antes de ser fusilado en el panteón de Tototlán.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Román Adame Rosales</div>
+        <div class="martyr-date">† 21 Abr. 1927 · Yahualica, Jal.</div>
+        <p class="martyr-desc">Detenido casi a los setenta años, fue obligado a caminar descalzo hasta Yahualica, donde fue fusilado en el cementerio.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Cristóbal Magallanes Jara</div>
+        <div class="martyr-date">† 25 May. 1927 · Colotlán, Jal.</div>
+        <p class="martyr-desc">Fusilado junto al seminarista Caloca; perdonó a sus verdugos y pidió que su sangre sirviera para la paz de México.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Agustín Caloca Cortés</div>
+        <div class="martyr-date">† 25 May. 1927 · Colotlán, Jal.</div>
+        <p class="martyr-desc">Seminarista y colaborador del Pbro. Magallanes; fue fusilado junto a él el mismo día en Colotlán.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. José Isabel Flores Varela</div>
+        <div class="martyr-date">† 21 Jun. 1927 · Zapotlanejo, Jal.</div>
+        <p class="martyr-desc">Sobrevivió a un intento de ahorcamiento y de fusilamiento antes de morir a manos de sus captores en el panteón de Zapotlanejo.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. José María Robles Hurtado</div>
+        <div class="martyr-date">† 26 Jun. 1927 · Sierra de Quila, Jal.</div>
+        <p class="martyr-desc">Fundador de una congregación religiosa; fue ahorcado en lo alto de la sierra de Quila al ser aprehendido mientras se disponía a celebrar misa.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Miguel de la Mora</div>
+        <div class="martyr-date">† 7 Ago. 1927 · Colima</div>
+        <p class="martyr-desc">Aprehendido cuando huía hacia la sierra; fue fusilado dentro de un cuartel militar en Colima mientras rezaba el rosario.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Rodrigo Aguilar Alemán</div>
+        <div class="martyr-date">† 28 Oct. 1927 · Ejutla, Jal.</div>
+        <p class="martyr-desc">Ahorcado de un árbol de mango; sus últimas palabras fueron: "Suba, suba. En el cielo lo veré."</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Margarito Flores García</div>
+        <div class="martyr-date">† 12 Nov. 1927 · Tulimán, Gro.</div>
+        <p class="martyr-desc">Se negó a que le vendaran los ojos y recibió los disparos del pelotón con los brazos extendidos en forma de cruz.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Pedro Esqueda Ramírez</div>
+        <div class="martyr-date">† 22 Nov. 1927 · Teocaltitán, Jal.</div>
+        <p class="martyr-desc">De camino a su fusilamiento animó a un niño a no abandonar el catecismo; fue ejecutado a las afueras de Teocaltitán.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Jesús Méndez Montoya</div>
+        <div class="martyr-date">† 5 Feb. 1928 · Valtierrilla, Gto.</div>
+        <p class="martyr-desc">Fue descubierto al salir de misa ocultando el copón bajo su tilma; los soldados lo reconocieron y lo fusilaron ese mismo día.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Atilano Cruz Alvarado</div>
+        <div class="martyr-date">† 1 Jul. 1928 · Cuquío, Jal.</div>
+        <p class="martyr-desc">Vicario parroquial; murió acribillado en su habitación minutos después que su párroco, el Pbro. Orona, en el mismo asalto.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Justino Orona Madrigal</div>
+        <div class="martyr-date">† 1 Jul. 1928 · Cuquío, Jal.</div>
+        <p class="martyr-desc">Sorprendido de madrugada por tropas federales en Cuquío, abrió la puerta gritando "¡Viva Cristo Rey!" y cayó al instante bajo las balas.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Tranquilino Ubiarco Robles</div>
+        <div class="martyr-date">† 5 Oct. 1928 · Tepatitlán, Jal.</div>
+        <p class="martyr-desc">Descubierto mientras oficiaba una boda clandestina; bendijo la soga con la que sería ahorcado horas después.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Pedro de Jesús Maldonado Lucero</div>
+        <div class="martyr-date">† 11 Feb. 1937 · Chihuahua</div>
+        <p class="martyr-desc">Detenido y golpeado brutalmente en Santa Isabel, Chihuahua; murió al día siguiente a causa de las heridas recibidas.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament-line"><span>· En Sus Propias Palabras ·</span></div>
+  <div class="quotes-wrap">
+    <div class="quote-display" id="quote-display">
+      <span class="q-mark">"</span>
+      <p class="q-text" id="q-text"></p>
+      <p class="q-author" id="q-author"></p>
+    </div>
+    <div class="q-nav">
+      <button class="q-btn" onclick="qNav(-1)" aria-label="Anterior">←</button>
+      <div class="q-dots" id="q-dots"></div>
+      <button class="q-btn" onclick="qNav(1)" aria-label="Siguiente">→</button>
+    </div>
+  </div>
+</main>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">✝&#xFE0E; CRISTIADA · 1926–2026</div>
+      <p class="footer-thanks">Gracias por visitarnos</p>
+      <p class="footer-line">Sitio Web conmemorativo sin objeto de lucro, con fines de difusión y educación históricas. Los textos, fotos y videos son de dominio público ó han sido elaborados ex-profeso para los fines de este sitio. Partes del sitio y algunas fotografías, textos y videos fueron creados, restaurados ó adaptados con ayuda de inteligencia artificial.</p>
+    </div>
+    <div class="footer-sources">
+      <h4>Fuentes históricas</h4>
+      <ul>
+        <li>Jean Meyer — <em>La Cristiada</em> (1973)</li>
+        <li>Archivo General de la Nación — AGN</li>
+        <li>Wikimedia Commons — Dominio público</li>
+        <li>Mediateca INAH — mediateca.inah.gob.mx</li>
+        <li>Library of Congress — loc.gov</li>
+        <li>INEGI — datos geográficos</li>
+        <li>Antonio Rius Facius — <em>Soldados de Cristo Rey</em> (1960)</li>
+        <li>Wilfrid Parsons — <em>El Santo de las Catacumbas</em> (1936)</li>
+        <li>Luis González y González — <em>Dios y el Diablo en la Tierra Caliente</em> (1968)</li>
+        <li>Alicia Olivera — <em>El Conflicto entre el Poder Civil y el Clero</em> (1987)</li>
+        <li>David C. Bailey — <em>¡Viva Cristo Rey!</em> (1974)</li>
+        <li>Jim Tuck — <em>The Holy War in Los Altos</em> (1982)</li>
+        <li>El Informador — Hemeroteca, Guadalajara, Jal.</li>
+        <li>Hemeroteca Nacional Digital de México — UNAM</li>
+        <li>Fototeca Nacional del INAH — Pachuca, Hgo.</li>
+        <li>Archivo Casasola — Fototeca Nacional</li>
+        <li>Congregación para las Causas de los Santos — Vaticano</li>
+        <li>Sistema de Información Cultural — Secretaría de Cultura</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ── Nav bar: horizontal auto-scroll loop (deja el control al usuario en cuanto toca) ── */
+  (function(){
+    var navScroll = document.getElementById('nav-scroll');
+    var navHint = document.getElementById('nav-scroll-hint');
+    if(!navScroll || !navHint) return;
+    var overflows = function(){ return navScroll.scrollWidth > navScroll.clientWidth + 4; };
+    var updateHint = function(){
+      var atEnd = navScroll.scrollLeft + navScroll.clientWidth >= navScroll.scrollWidth - 4;
+      navHint.classList.toggle('is-hidden', !overflows() || atEnd);
+    };
+    updateHint();
+    navScroll.addEventListener('scroll', updateHint, {passive:true});
+    window.addEventListener('resize', updateHint);
+
+    var loopActive = false, stepTimer = null, cloneEl = null, singleWidth = 0, resumeTimer = null;
+    var STEP_MS = 40, RESUME_DELAY = 1000;
+    var scheduleResume = function(){
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(function(){ startLoop(); }, RESUME_DELAY);
+    };
+    var stopLoop = function(){
+      loopActive = false;
+      if(stepTimer){ clearInterval(stepTimer); stepTimer = null; }
+      scheduleResume();
+    };
+    ['touchstart','pointerdown','wheel','mousedown'].forEach(function(evt){
+      navScroll.addEventListener(evt, stopLoop, {passive:true});
+    });
+    var startLoop = function(){
+      var resumeFrom = navScroll.scrollLeft;
+      clearTimeout(resumeTimer); resumeTimer = null;
+      if(stepTimer){ clearInterval(stepTimer); stepTimer = null; }
+      if(cloneEl && cloneEl.parentNode){ cloneEl.parentNode.removeChild(cloneEl); cloneEl = null; }
+      if(!overflows()){ navScroll.scrollLeft = 0; return; }
+      loopActive = true;
+      var navRow = navScroll.querySelector('.nav-row');
+      navRow.style.justifyContent = 'flex-start';
+      singleWidth = navRow.scrollWidth;
+      cloneEl = navRow.cloneNode(true);
+      cloneEl.removeAttribute('id');
+      cloneEl.style.justifyContent = 'flex-start';
+      navScroll.style.display = 'flex';
+      navScroll.appendChild(cloneEl);
+      navScroll.scrollLeft = singleWidth ? (resumeFrom % singleWidth) : 0;
+      var pxPerStep = (singleWidth / 40000) * STEP_MS;
+      stepTimer = setInterval(function(){
+        var next = navScroll.scrollLeft + pxPerStep;
+        if(next >= singleWidth) next -= singleWidth;
+        navScroll.scrollLeft = next;
+      }, STEP_MS);
+    };
+    setTimeout(startLoop, 1200);
+    window.addEventListener('pageshow', function(e){
+      if(e.persisted) setTimeout(startLoop, 300);
+    });
+    setInterval(function(){
+      if(!loopActive && !resumeTimer && overflows()) startLoop();
+    }, 4000);
+  })();
+
+  /* ── Compartir: panel con enlaces sociales ── */
+  (function(){
+    var TRIGGER_SELECTOR = '.hsk-share-btn-trigger';
+    var panel = null, btn = null;
+    var ICONS = {
+      whatsapp: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.16-1.35A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.06.8.82-2.99-.2-.31A8.2 8.2 0 1 1 12 20.2zm4.5-6.14c-.25-.12-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.22.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.55.12.16 1.74 2.65 4.2 3.72.59.25 1.05.4 1.4.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>',
+      facebook: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.52l.38-2.93H13.5V8.7c0-.85.24-1.43 1.45-1.43h1.55V4.65c-.27-.04-1.19-.12-2.26-.12-2.24 0-3.77 1.37-3.77 3.88v2.16H8v2.93h2.47V21h3.03z"/></svg>',
+      x: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
+      correo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6.5 10 7 10-7"/></svg>',
+      liga: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg>',
+      close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>'
+    };
+    function closePanel(){
+      if(!panel) return;
+      panel.remove(); panel = null;
+      if(btn) btn.setAttribute('aria-expanded','false');
+      document.removeEventListener('click', onDocClick);
+      document.removeEventListener('keydown', onKeydown);
+    }
+    function onDocClick(e){ if(panel && !panel.contains(e.target) && e.target !== btn) closePanel(); }
+    function onKeydown(e){ if(e.key === 'Escape') closePanel(); }
+    function makeItem(iconKey, label, href, onClick, brandClass){
+      var wrap = document.createElement('span');
+      wrap.className = 'hsk-share-item';
+      var a = document.createElement(onClick ? 'button' : 'a');
+      a.className = 'hsk-share-ico' + (brandClass ? ' ' + brandClass : '');
+      a.innerHTML = ICONS[iconKey];
+      if(onClick){ a.type = 'button'; a.addEventListener('click', onClick); }
+      else { a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+      a.setAttribute('aria-label', label);
+      var tip = document.createElement('span');
+      tip.className = 'hsk-share-tip';
+      tip.textContent = label;
+      wrap.appendChild(a); wrap.appendChild(tip);
+      wrap.addEventListener('mouseenter', function(){
+        wrap.classList.remove('hsk-tip-left','hsk-tip-right');
+        var r = tip.getBoundingClientRect();
+        if(r.right > window.innerWidth - 8) wrap.classList.add('hsk-tip-right');
+        else if(r.left < 8) wrap.classList.add('hsk-tip-left');
+      });
+      return { wrap:wrap, tip:tip };
+    }
+    function openPanel(){
+      var url = location.href, title = document.title;
+      var text = 'Personajes · La Guerra Cristera';
+      panel = document.createElement('div');
+      panel.setAttribute('role','menu');
+      panel.style.cssText = 'position:fixed;z-index:9999;background:var(--ink);border:1px solid rgba(201,168,76,.5);border-radius:12px;padding:36px 14px 14px;display:flex;flex-wrap:wrap;gap:10px;max-width:min(320px,calc(100vw - 16px));box-shadow:0 12px 30px rgba(0,0,0,.5);';
+
+      var closeWrap = document.createElement('span');
+      closeWrap.className = 'hsk-share-item hsk-share-close-wrap';
+      var closeBtn = document.createElement('button');
+      closeBtn.type = 'button';
+      closeBtn.className = 'hsk-share-ico hsk-share-close';
+      closeBtn.setAttribute('aria-label','Cerrar');
+      closeBtn.innerHTML = ICONS.close;
+      closeBtn.addEventListener('click', closePanel);
+      var closeTip = document.createElement('span');
+      closeTip.className = 'hsk-share-tip';
+      closeTip.textContent = 'Cerrar';
+      closeWrap.appendChild(closeBtn); closeWrap.appendChild(closeTip);
+      closeWrap.addEventListener('mouseenter', function(){
+        closeWrap.classList.remove('hsk-tip-left','hsk-tip-right');
+        var r = closeTip.getBoundingClientRect();
+        if(r.right > window.innerWidth - 8) closeWrap.classList.add('hsk-tip-right');
+        else if(r.left < 8) closeWrap.classList.add('hsk-tip-left');
+      });
+      panel.appendChild(closeWrap);
+
+      panel.appendChild(makeItem('whatsapp','WhatsApp','https://wa.me/?text=' + encodeURIComponent(text + ' ' + url), null, 'hsk-ico-whatsapp').wrap);
+      panel.appendChild(makeItem('facebook','Facebook','https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), null, 'hsk-ico-facebook').wrap);
+      panel.appendChild(makeItem('x','X','https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url), null, 'hsk-ico-x').wrap);
+      panel.appendChild(makeItem('correo','Correo','mailto:?subject=' + encodeURIComponent(title) + '&body=' + encodeURIComponent(text + ' - ' + url)).wrap);
+
+      var copyItem = makeItem('liga','Copiar enlace', null, function(){
+        if(!navigator.clipboard) return;
+        navigator.clipboard.writeText(url).then(function(){
+          copyItem.tip.textContent = 'Copiado';
+          copyItem.wrap.classList.add('hsk-tip-force');
+          setTimeout(function(){
+            copyItem.tip.textContent = 'Copiar enlace';
+            copyItem.wrap.classList.remove('hsk-tip-force');
+          }, 1400);
+        });
+      });
+      panel.appendChild(copyItem.wrap);
+
+      document.body.appendChild(panel);
+      var r = btn.getBoundingClientRect();
+      var pw = panel.offsetWidth;
+      var left = Math.min(Math.max(8, r.left), window.innerWidth - pw - 8);
+      var top = r.bottom + 8;
+      if(top + panel.offsetHeight > window.innerHeight - 8) top = Math.max(8, r.top - panel.offsetHeight - 8);
+      panel.style.top = top + 'px';
+      panel.style.left = left + 'px';
+      btn.setAttribute('aria-expanded','true');
+      setTimeout(function(){
+        document.addEventListener('click', onDocClick);
+        document.addEventListener('keydown', onKeydown);
+      }, 0);
+    }
+    document.addEventListener('click', function(e){
+      var trigger = e.target.closest && e.target.closest(TRIGGER_SELECTOR);
+      if(!trigger) return;
+      e.preventDefault();
+      if(panel){ closePanel(); return; }
+      btn = trigger;
+      openPanel();
+    });
+  })();
+
+  /* ── Música de fondo (toggle) ── */
+  window.toggleAudio = function(){
+    var audio = document.getElementById('bg-audio');
+    var btn   = document.getElementById('audio-btn');
+    var icon  = document.getElementById('audio-icon');
+    var label = document.getElementById('audio-label');
+    if(!audio) return;
+    if(audio.paused){
+      audio.volume = 0.35;
+      audio.play();
+      icon.textContent = '❚❚';
+      label.textContent = 'Apagar Música';
+      btn.setAttribute('aria-label','Apagar música de fondo');
+      btn.classList.remove('btn-ghost');
+      btn.classList.add('btn-gold');
+    } else {
+      audio.pause();
+      icon.textContent = '♪';
+      label.textContent = 'Encender Música';
+      btn.setAttribute('aria-label','Encender música de fondo');
+      btn.classList.remove('btn-gold');
+      btn.classList.add('btn-ghost');
+    }
+  };
+
+  /* ── Scroll reveal ── */
+  var revObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); revObs.unobserve(e.target); }
+    });
+  }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ revObs.observe(el); });
+
+  /* ── Quotes carousel ── */
+  var quotes = [
+    { text:'"Morir de pie por Dios es mejor que vivir de rodillas ante los hombres."', author:'— Combatiente cristero anónimo' },
+    { text:'"¡Viva Cristo Rey! ¡Viva Santa María de Guadalupe!"', author:'— Grito de batalla de los cristeros' },
+    { text:'"Padre, perdono a todos mis enemigos y ruego a Dios que también los perdone."', author:'— P. Miguel Pro S.J. · antes de ser fusilado · 1927' },
+    { text:'"Suba, suba. En el cielo lo veré."', author:'— Pbro. Rodrigo Aguilar Alemán · al ser ahorcado · 1927' },
+    { text:'"La Cristiada fue el único momento en que el pueblo mexicano dijo No al Estado con las armas en la mano."', author:'— Jean Meyer, historiador' }
+  ];
+  var qCurrent = 0;
+  var qText   = document.getElementById('q-text');
+  var qAuthor = document.getElementById('q-author');
+  var qDots   = document.getElementById('q-dots');
+  function renderQuote(n){
+    qCurrent = (n + quotes.length) % quotes.length;
+    qText.textContent   = quotes[qCurrent].text;
+    qAuthor.textContent = quotes[qCurrent].author;
+    qDots.querySelectorAll('.q-dot').forEach(function(d,i){ d.classList.toggle('active', i===qCurrent); });
+  }
+  quotes.forEach(function(_,i){
+    var d = document.createElement('button');
+    d.className = 'q-dot' + (i===0?' active':'');
+    d.setAttribute('aria-label','Cita '+(i+1));
+    d.addEventListener('click', function(){ renderQuote(i); });
+    qDots.appendChild(d);
+  });
+  renderQuote(0);
+  window.qNav = function(dir){ renderQuote(qCurrent+dir); };
+  var qTimer = setInterval(function(){ renderQuote(qCurrent+1); }, 6000);
+  var qWrap = document.querySelector('.quotes-wrap');
+  if(qWrap){
+    qWrap.addEventListener('mouseenter', function(){ clearInterval(qTimer); });
+    qWrap.addEventListener('mouseleave', function(){ qTimer = setInterval(function(){ renderQuote(qCurrent+1); }, 6000); });
+  }
+
+})();
+</script>
+
+</body>
+</html>
