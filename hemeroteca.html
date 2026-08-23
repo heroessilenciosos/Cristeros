@@ -401,6 +401,7 @@ dialog#hem-lb::backdrop{ background:rgba(0,0,0,.92); backdrop-filter:blur(6px); 
 .hem-lb-view.fit{ align-items:center; justify-content:center; }
 #hem-lb-img{ display:block; flex-shrink:0; -webkit-user-drag:none; user-select:none; }
 .hem-lb-view.fit #hem-lb-img{ max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; }
+#hem-lb-pdf{ width:100%; height:100%; border:none; background:#fff; }
 .hem-lb-view:not(.fit){ cursor:grab; touch-action:none; }
 .hem-lb-view:not(.fit).grabbing{ cursor:grabbing; }
 .hem-lb-cap{
@@ -572,16 +573,17 @@ footer{
         <span class="hem-badge-edition">El Informador<br>Número 3015</span>
       </div>
       <div class="hem-cards">
-        <a class="hem-card"
-          href="assets/hemeroteca/1926-02-25_El_Informador_Plana_1.pdf"
-          target="_blank" rel="noopener noreferrer"
+        <button class="hem-card"
+          data-src="assets/hemeroteca/1926-02-25_El_Informador_Plana_1.pdf"
+          data-title="Primera Plana · 25 de febrero de 1926"
+          data-meta="El Informador · Número 3015"
           data-cap="Documento original en PDF de la primera plana de El Informador, 25 de febrero de 1926.">
           <span class="hem-card-tag">Primera plana · PDF</span>
           <span class="hem-card-label">El Informador · 25 de Febrero de 1926</span>
           <span class="hem-card-thumb">
             <span class="hem-card-thumb-pdf"><span class="hem-pdf-icon">&#128196;</span>Ver PDF original</span>
           </span>
-        </a>
+        </button>
 
         <button class="hem-card"
           data-src="assets/hemeroteca/1926-02-25_recorte_1_clausuran-templos-acjm-empleados-catolicos.png"
@@ -1266,6 +1268,7 @@ footer{
   </div>
   <div class="hem-lb-view fit" id="hem-lb-view">
     <img id="hem-lb-img" src="" alt="">
+    <iframe id="hem-lb-pdf" src="" title="" hidden></iframe>
   </div>
   <p class="hem-lb-cap" id="hem-lb-cap"></p>
 </dialog>
@@ -1489,6 +1492,7 @@ footer{
   var dlg    = document.getElementById('hem-lb');
   var view   = document.getElementById('hem-lb-view');
   var img    = document.getElementById('hem-lb-img');
+  var pdfFrame = document.getElementById('hem-lb-pdf');
   var title  = document.getElementById('hem-lb-title');
   var meta   = document.getElementById('hem-lb-meta');
   var cap    = document.getElementById('hem-lb-cap');
@@ -1568,11 +1572,21 @@ footer{
   function bindHemCard(card){
     card.addEventListener('click', function(){
       var d = card.dataset;
-      img.src = d.src; img.alt = d.title || '';
+      var isPdf = /\.pdf(\?|$)/i.test(d.src || '');
       title.textContent = d.title || '';
       meta.textContent  = d.meta  || '';
       cap.textContent   = d.cap   || '';
-      setFit(true);
+      if(isPdf){
+        img.hidden = true; img.src = '';
+        pdfFrame.hidden = false; pdfFrame.src = d.src; pdfFrame.title = d.title || '';
+        fitBtn.hidden = true; realBtn.hidden = true; zoomWrap.classList.remove('show');
+        view.classList.add('fit');
+      } else {
+        pdfFrame.hidden = true; pdfFrame.src = '';
+        img.hidden = false; img.src = d.src; img.alt = d.title || '';
+        fitBtn.hidden = false; realBtn.hidden = false;
+        setFit(true);
+      }
       dlg.showModal();
     });
   }
@@ -1589,7 +1603,7 @@ footer{
     else card.appendChild(capEl);
   }
   document.querySelectorAll('.hem-card').forEach(function(card){
-    if (card.tagName !== 'A') bindHemCard(card);
+    bindHemCard(card);
     addHemCardCap(card);
   });
   document.getElementById('hem-lb-close').addEventListener('click', function(){ dlg.close(); });
