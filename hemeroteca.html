@@ -324,6 +324,17 @@ nav{
   font-size:1.02rem; line-height:1.6; color:var(--sepia-ink);
   border-top:1px solid rgba(28,17,9,.1);
 }
+.hem-doc-card{
+  display:block; background:#fbf7ec; border:1px solid rgba(28,17,9,.12); cursor:pointer;
+  text-align:left; padding:0; font:inherit; color:inherit; text-decoration:none;
+  box-shadow:0 5px 16px rgba(28,17,9,.14);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.hem-doc-card:hover, .hem-doc-card:focus-visible{
+  transform:translateY(-5px);
+  box-shadow:0 14px 30px rgba(28,17,9,.22);
+}
+.hem-doc-card .hem-card-tag::after{ content:' ↗ Abre en pestaña nueva'; color:var(--dim); letter-spacing:.5px; }
 
 @media (max-width:640px){
   .hem-date-row{ flex-direction:column; gap:1.2rem; }
@@ -1089,6 +1100,30 @@ footer{
             <img src="assets/hemeroteca/1926-07-16_recorte_se-hara-cumplir-la-ley.png" alt="Recorte: Se hará cumplir la ley, 16 de julio de 1926" loading="lazy">
           </span>
         </button>
+      </div>
+    </div>
+
+    <!-- 2 de julio de 1926 -->
+    <div class="hem-date-row reveal" id="fecha-1926-07-02" data-date="1926-07-02">
+      <div class="hem-date-badge">
+        <span class="hem-badge-day">2</span>
+        <span class="hem-badge-month">Julio</span>
+        <span class="hem-badge-year">1926</span>
+        <span class="hem-badge-weekday">Viernes</span>
+        <span class="hem-badge-edition">Diario Oficial<br>Tomo XXXVII · Núm. 2</span>
+      </div>
+      <div class="hem-cards">
+        <a class="hem-doc-card"
+          href="assets/hemeroteca/1926-07-02_Diario_Oficial_Ley_Calles.pdf"
+          target="_blank" rel="noopener noreferrer"
+          aria-label="Abrir PDF: Ley que reforma el Código Penal, Diario Oficial, 2 de julio de 1926, documento completo de 4 páginas">
+          <span class="hem-card-tag">Documento oficial · PDF · 4 págs.</span>
+          <span class="hem-card-label">Diario Oficial · &laquo;Ley Calles&raquo; · 2 de Julio de 1926</span>
+          <span class="hem-card-thumb">
+            <img src="assets/hemeroteca/1926-07-02_Diario_Oficial_pag1_thumb.png" alt="Primera página del Diario Oficial, 2 de julio de 1926" loading="lazy">
+          </span>
+          <span class="hem-card-cap">Ley que reforma el Código Penal para el Distrito y Territorios Federales sobre delitos del fuero común, y para toda la República sobre delitos contra la Federación, en materia de culto religioso y disciplina externa — la «Ley Calles», que entraría en vigor el 31 de julio de ese mismo año. Documento oficial completo, 4 páginas.</span>
+        </a>
       </div>
     </div>
 
