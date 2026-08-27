@@ -525,6 +525,18 @@ nav.scrolled{
   font-family:var(--italic); font-style:italic;
   font-size:.95rem; color:rgba(201,168,76,.75); line-height:1.7;
 }
+.tl-doc-card{
+  display:flex; align-items:center; gap:.9rem; margin-top:1rem;
+  padding:.6rem; background:rgba(201,168,76,.06); border:1px solid rgba(201,168,76,.25);
+  text-decoration:none; transition:background .25s ease, border-color .25s ease;
+}
+.tl-doc-card:hover{ background:rgba(201,168,76,.12); border-color:rgba(201,168,76,.45); }
+.tl-doc-thumb{ flex:0 0 64px; width:64px; height:88px; overflow:hidden; display:block; background:#e4d9c0; }
+.tl-doc-thumb img{ width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+.tl-doc-tag{ display:block; font-family:var(--sans); font-size:.6rem; letter-spacing:1.5px; text-transform:uppercase; color:#8b5c00; }
+.tl-doc-label{ display:block; margin-top:.25rem; font-family:var(--serif); font-size:.85rem; color:var(--cream-dim); line-height:1.3; }
+body.theme-light .tl-doc-card{ background:rgba(139,92,0,.05); border-color:rgba(139,92,0,.25); }
+body.theme-light .tl-doc-card:hover{ background:rgba(139,92,0,.1); border-color:rgba(139,92,0,.45); }
 @media (max-width:540px){
   .tl-wrap::before{ left:56px; }
   .tl-year-col{ width:56px; padding-right:.8rem; }
@@ -925,8 +937,20 @@ footer{
             <span class="tl-chevron">▶</span>
           </summary>
           <div class="tl-expand">
-            <p class="tl-desc">El presidente Plutarco Elías Calles promulga la "Ley Calles", penalizando con cárcel a los sacerdotes que ejerzan su ministerio. Es la chispa que incendia al país. El clero debe registrarse ante el gobierno —una humillación inaceptable para los fieles.</p>
+            <p class="tl-desc">El presidente Plutarco Elías Calles promulga la "Ley Calles", penalizando con cárcel a los sacerdotes que ejerzan su ministerio. Es la chispa que incendia al país.</p>
             <p class="tl-quote">"Soy el enemigo número uno del clero." — Plutarco Elías Calles</p>
+            <a class="tl-doc-card"
+              href="assets/hemeroteca/1926-07-02_Diario_Oficial_Ley_Calles.pdf"
+              target="_blank" rel="noopener noreferrer"
+              aria-label="Abrir PDF: Diario Oficial, 2 de julio de 1926, Ley Calles, documento completo de 4 páginas">
+              <span class="tl-doc-thumb">
+                <img src="assets/hemeroteca/1926-07-02_Diario_Oficial_pag1_thumb.png" alt="Primera página del Diario Oficial, 2 de julio de 1926" loading="lazy">
+              </span>
+              <span class="tl-doc-text">
+                <span class="tl-doc-tag">Documento oficial · PDF · 4 págs. · Abre en pestaña nueva</span>
+                <span class="tl-doc-label">Diario Oficial · &laquo;Ley Calles&raquo; · 2 de Julio de 1926</span>
+              </span>
+            </a>
           </div>
         </details>
       </div>
