@@ -302,7 +302,9 @@ nav.scrolled{
   display:flex; flex-direction:column; align-items:center; gap:.7rem;
   color:rgba(201,168,76,.6); text-decoration:none;
 }
-.scroll-cue span{ font-family:var(--serif); font-size:.78rem; letter-spacing:3px; text-transform:uppercase; }
+.scroll-cue-row{ display:inline-flex; align-items:center; gap:.6rem; }
+.scroll-cue-text{ font-family:var(--sans); font-size:.88rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; }
+.scroll-cue-arrow{ font-size:1rem; line-height:1; }
 .scroll-cue .line{ width:1px; height:42px; background:linear-gradient(var(--gold),transparent);
   position:relative; overflow:hidden; }
 .scroll-cue .line::after{
@@ -784,8 +786,11 @@ footer{
     </div>
   </div>
 
-  <a class="scroll-cue anim" style="--d:3.3s" href="#inicio" aria-label="Desplázate">
-    <span>Desliza</span>
+  <a class="scroll-cue anim" style="--d:3.3s" href="#inicio" aria-label="Ver más">
+    <span class="scroll-cue-row">
+      <span class="scroll-cue-text">Ver más</span>
+      <span class="scroll-cue-arrow" aria-hidden="true">↓</span>
+    </span>
     <span class="line"></span>
   </a>
   <span class="section-page-num" aria-hidden="true">01</span>
