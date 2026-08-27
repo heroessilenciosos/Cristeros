@@ -930,7 +930,7 @@ footer{
     <div class="tl-item reveal">
       <div class="tl-year-col"><span class="tl-year">1926</span><span class="tl-month">Jul. 2</span></div>
       <div class="tl-body">
-        <details>
+        <details id="tl-detonante" open>
           <summary>
             <span class="tl-tag" style="color:#8b5c00;">Detonante</span>
             <span class="tl-title">La Ley Calles — El Detonante</span>
@@ -1338,6 +1338,15 @@ footer{
 <script>
 (function(){
   'use strict';
+
+  /* ── 'Detonante' de la línea del tiempo: fijo, no se puede cerrar ───────── */
+  (function(){
+    var fixedDetail = document.getElementById('tl-detonante');
+    if(!fixedDetail) return;
+    fixedDetail.addEventListener('toggle', function(){
+      if(!fixedDetail.open) fixedDetail.open = true;
+    });
+  })();
 
   /* ── Video blob loader (progressive enhancement) ───────────────────────── */
   (function loadVideo(){
