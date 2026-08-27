@@ -276,7 +276,8 @@ nav.scrolled{
   backdrop-filter:blur(2px); }
 .btn-ghost:hover{ border-color:var(--gold); color:var(--gold-hi); }
 
-#audio-btn{ position:relative; border-radius:999px; }
+#audio-btn{ position:relative; border-radius:999px; min-height:62.4px; }
+#audio-icon{ font-size:1.7rem; line-height:1; }
 #audio-btn::after{
   content:''; position:absolute; inset:0; border-radius:999px;
   pointer-events:none; animation:audioGlow 2.6s ease-in-out infinite;
@@ -769,7 +770,7 @@ footer{
 
     <div class="cta anim" style="--d:2.8s">
       <button type="button" id="audio-btn" class="btn btn-ghost" aria-label="Encender música de fondo" onclick="toggleAudio()">
-        <span id="audio-icon" aria-hidden="true">♪</span>
+        <span id="audio-icon" aria-hidden="true">𝄞</span>
         <span id="audio-label">Encender Música</span>
       </button>
     </div>
@@ -1359,7 +1360,7 @@ footer{
       btn.classList.add('btn-gold');
     } else {
       audio.pause();
-      icon.textContent = '♪';
+      icon.textContent = '𝄞';
       label.textContent = 'Encender Música';
       btn.setAttribute('aria-label','Encender música de fondo');
       btn.classList.remove('btn-gold');
